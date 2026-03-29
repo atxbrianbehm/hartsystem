@@ -33,7 +33,11 @@
     padding="8px 12px"
     type="main"
   >
-    <Text id="pageTitleText" value="# Site Level" verticalAlign="center" />
+    <Text
+      id="pageTitleText"
+      value="# Site Level - {{ currentUser.value?.siteLabel || currentUser.value?.siteName || 'No Site Selected' }}"
+      verticalAlign="center"
+    />
     <Button id="addEquipmentButton" text="Add Equipment">
       <Event
         id="91036285"

@@ -1,0 +1,20 @@
+{
+  "name": "hartsystem-fullstack",
+  "private": true,
+  "version": "0.1.0",
+  "workspaces": [
+    "apps/api",
+    "apps/web"
+  ],
+  "scripts": {
+    "bootstrap:windows": "powershell -NoProfile -ExecutionPolicy Bypass -File ./scripts/bootstrap_local_stack.ps1",
+    "db:up": "docker compose up -d postgres",
+    "db:down": "docker compose down",
+    "db:migrate": "bash ./scripts/db_migrate.sh",
+    "db:reset": "bash ./scripts/db_reset.sh",
+    "dev": "npm run dev -w @hartsystem/api & npm run dev -w @hartsystem/web",
+    "dev:stack": "npm run db:up && npm run db:migrate && npm run dev",
+    "build": "npm run build -w @hartsystem/api && npm run build -w @hartsystem/web",
+    "lint": "npm run lint -w @hartsystem/api && npm run lint -w @hartsystem/web"
+  }
+}
